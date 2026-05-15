@@ -1,0 +1,82 @@
+spring:
+  application:
+    name: micro_investment
+  main:
+    lazy-initialization: true
+  threads:
+      virtual:
+        enabled: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/microinvestment
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 10
+      minimum-idle: 5
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    baseline-version: 0
+    validate-on-migrate: true
+    clean-disabled: false
+  # CORS Configuration
+#   web:
+#     cors:
+#       allowed-origins: "*"
+#       allowed-methods:
+#         - GET
+#         - POST
+#         - PUT
+#         - DELETE
+#         - PATCH
+#         - OPTIONS
+#       allowed-headers:
+#         - "*"
+#       allow-credentials: true
+#       max-age: 3600
+
+
+
+
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    try-it-out-enabled: true
+
+
+server:
+  ssl:
+    enabled: false
+  port: 6200
+
+logging:
+  level:
+    com.van.falawork_backend: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    # Logging des requêtes HTTP avec temps d'exécution
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    org.springframework.boot.actuate.trace.web.HttpTraceRepository: DEBUG
+    org.springframework.boot.actuate.web.trace.HttpExchangeTracer: DEBUG
+    # Pour voir les temps de réponse
+    org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter: DEBUG
+
