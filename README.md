@@ -38,8 +38,8 @@ This is the easiest way to start the application along with its database.
 docker compose up --build
 ```
 
-The application will be available at: `http://localhost:6100`
-Swagger UI: `http://localhost:6100/swagger-ui.html`
+The application will be available at: `http://localhost:6200`
+Swagger UI: `http://localhost:6200/swagger-ui.html`
 Database: `localhost:5433` (User: `postgres`, Pass: `postgres`)
 
 ### Option 2: Run Locally (Maven)
@@ -86,7 +86,7 @@ Integration tests require **Docker** to be running. They spin up a real PostgreS
 ## 📖 API Documentation
 
 Once the app is running, visit:
-[http://localhost:6100/swagger-ui.html](http://localhost:6100/swagger-ui.html)
+[http://localhost:6200/swagger-ui.html](http://localhost:6100/swagger-ui.html)
 
 ### Key Endpoints
 *   `POST /api/v1/users`: Create a user.
@@ -98,7 +98,5 @@ Once the app is running, visit:
 
 ---
 
-## 📝 Important Notes
-*   **Java Version**: The project is configured for Java 21. If you are using Java 17, you must override the compiler release version:
-    `./mvnw clean compile -Dmaven.compiler.release=17`
+## 📝 Important Notes`
 *   **Rounding Logic**: Round-ups are calculated using `Ceiling` mode to 4 decimal places.
