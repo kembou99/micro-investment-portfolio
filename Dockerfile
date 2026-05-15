@@ -41,7 +41,7 @@ RUN chown spring:spring micro-investment.jar
 USER spring:spring
 
 # Expose le port configuré
-EXPOSE 6100
+EXPOSE 6200
 
 # Variables d'environnement pour optimiser la JVM Java 21
 ENV JAVA_OPTS="-XX:+UseContainerSupport \
